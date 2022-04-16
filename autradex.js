@@ -1,5 +1,5 @@
 //Scott Lindh 2018
-//JS implimentation of the Graviex API
+//JS implimentation of the Autradex API
 //
 //
 /////
@@ -8,7 +8,7 @@ var exports = module.exports = {};
 var request = require('request');
 var crypto = require('crypto');
 
-var accessKey = "";//Your Graviex access key.
+var accessKey = "";//Your Autradex access key.
 exports.accessKey = exports.accessKey;
 var secretKey = "";
 exports.secretKey = exports.secretKey;
@@ -32,7 +32,7 @@ exports.tonce = function(callback){
 })
 */
 exports.apiRequest = function(uri, callback){
-	var url = 'https://graviex.net/api/v2/' + uri;
+	var url = 'https://wallet.autradex.systems/api/v2/' + uri;
 	//console.log(url);
 	request.get(url, function (error, response, body) {
     if(error){
@@ -57,7 +57,7 @@ apiPostRequest(function(result){
 })
 */
 exports.apiPostRequest = function(uri, payload, callback){
-	var url = 'https://graviex.net/api/v2/' + uri;
+	var url = 'https://wallet.autradex.systems/api/v2/' + uri;
 	//console.log(url);
 	request.post(url, {form:{signature:payload}}, function (error, response, body) {
     if(error){

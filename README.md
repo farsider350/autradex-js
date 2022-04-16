@@ -1,10 +1,10 @@
-# graviex-js
-A libary for graviex API written in JS
-# graviex-js
+# autradex-js
+A libary for autradex API written in JS
+# autradex-js
 
-A libary for graviex API written in JS
+A libary for autradex API written in JS
 
-Here is a full implimentation of the graviex exchange API in a nodejs NPM package.
+Here is a full implimentation of the autradex exchange API in a nodejs NPM package.
 
 
 > accessKey secretKey listMarkets allMarketsTicker ticker account
@@ -45,17 +45,17 @@ Here is a full implimentation of the graviex exchange API in a nodejs NPM packag
 # Example
 Install:
 
-    npm install graviex
+    npm install autradex
 	
 Example:
 
         //Import module
-        var  graviex  =  require("./graviex.js"); 
+        var  autradex  =  require("./autradex.js"); 
 	    //Settings / Config  
-        graviex.accessKey  =  "";    
-        graviex.secretKey  =  ""
+        autradex.accessKey  =  "";    
+        autradex.secretKey  =  ""
         
-        graviex.allMarketsTicker(function(res){
+        autradex.allMarketsTicker(function(res){
 	        if(!res.error){        
 	            console.log(res)
 	        }else{        
