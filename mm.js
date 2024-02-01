@@ -2,40 +2,47 @@
 
 var autradex = require("./autradex.js");
 
-autradex.accessKey = "";
-autradex.secretKey = "";
+autradex.accessKey = "bc80660b5bfe0af2";
+autradex.secretKey = "cf2f2e4984628236f0036893c352d6d3";
 
-/*
-autradex.allMarketsTicker(function(res){
+
+// Get markets - Working
+/*autradex.allMarketsTicker(function(res){
 	if(!res.error){
 		console.log(res);
 	}else{
 		console.log(res);
 	}
-})
-*/
+})*/
 
 
-//MARKET MAKER BOT TEST
+
+// BOT TEST - Working
 setInterval(function() {
 	console.log("_________________________________________________________");
-		//test market maker bot\
-	var theMarket = "onzbtc";
+
+
+// Options
+	var theMarket = "dogebtc";
 	var increase = 0.000000001;
-	var volume = 100;
-	//CLOSE ALL ORDERS
-	//
+	var volume = 1;
+
+// Close all orders - ToDo
 
 	autradex.clearAllOrders(function(res){
 		if(!res.error){
-			console.log("Removing old orders...");
+		    if (Array.isArray(res)) {
+                        console.log("Removing old orders...");
 			res.forEach(function(order){
 				console.log(order.id + "|" + order.state + "|" + order.side);
 			});
+                    } else {
+            console.error('Unexpected response format. Expected an array.');
+        }
 			autradex.orderBook(theMarket, function(res){
 				if(!res.error){
 					//get spread
-			
+
 					var selling = parseFloat(res.asks[0].price);
 					var buying = parseFloat(res.bids[0].price);
 					console.log("[Market Making]");
@@ -113,4 +120,4 @@ setInterval(function() {
 		}
 	});
 
-}, 30 * 1000); // 60 * 1000 milsec
+}, 30 * 60); // 60 * 1000 milsec

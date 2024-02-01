@@ -7,7 +7,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Scott Lindh",
   "license": "ISC",
   "dependencies": {
     "crypto": "^1.0.1",
